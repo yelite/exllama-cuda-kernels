@@ -1,6 +1,8 @@
 #include "column_remap.cuh"
 #include "../util.cuh"
 
+namespace exllama {
+
 const int SHUF_BLOCKSIZE_X = 256;
 const int SHUF_BLOCKSIZE_Y = 16;
 
@@ -58,4 +60,6 @@ void column_remap_cuda
     );
 
     column_remap_kernel<<<blocks, threads>>>(x, x_new, x_width, x_height, x_map);
+}
+
 }

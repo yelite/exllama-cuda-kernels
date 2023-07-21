@@ -2,6 +2,8 @@
 #include "../util.cuh"
 #include "../matrix.cuh"
 
+namespace exllama {
+
 const int THREADS_X = 32;
 const int THREADS_Y = 4;
 const int MAX_POS_EMBEDDINGS = 32768;  // Actual number doesn't matter
@@ -122,4 +124,6 @@ void rope_cuda
 
     fp_rope_cuda_kernel kernel = rope_cuda_kernel_pick(tuningParams);
     kernel<<<blocks, threads, 0, alt_stream>>>(x, sin, cos, rows_per_batch, head_dim, num_heads, past_len);
+}
+
 }

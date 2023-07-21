@@ -1,6 +1,8 @@
 #define _cuda_buffers_cu
 #include "cuda_buffers.cuh"
 
+namespace exllama {
+
 CudaBuffers* g_buffers[CUDA_MAX_DEVICES] = {NULL};
 // __constant__ half2 q4_table[16][256];
 // half2 q4_table_host[16][256];
@@ -96,4 +98,6 @@ void cleanup_buffers_cuda()
         delete g_buffers[i];
         g_buffers[i] = NULL;
     }
+}
+
 }

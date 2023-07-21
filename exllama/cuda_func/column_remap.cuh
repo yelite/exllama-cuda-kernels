@@ -5,6 +5,8 @@
 #include <cuda_fp16.h>
 #include <cstdint>
 
+namespace exllama {
+
 void column_remap_cuda
 (
     const half* x,
@@ -13,5 +15,7 @@ void column_remap_cuda
     const int x_width,
     const uint32_t* x_map
 );
+
+}
 
 #endif

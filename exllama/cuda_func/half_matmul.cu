@@ -2,9 +2,8 @@
 #include "../util.cuh"
 #include "../matrix.cuh"
 #include "../cuda_compat.cuh"
-#if defined(USE_ROCM)
-#include "../hip_compat.cuh"
-#endif
+
+namespace exllama {
 
 // Block size
 
@@ -235,3 +234,4 @@ void half_matmul_small_cuda
     }
 }
 
+}

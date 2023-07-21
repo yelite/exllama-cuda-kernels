@@ -6,12 +6,6 @@
 #include <cstdint>
 #include <cstdio>
 
-#if defined(USE_ROCM)
-#define cudaUnspecified hipErrorUnknown
-#else
-#define cudaUnspecified cudaErrorApiFailureBase
-#endif
-
 // React to failure on return code != cudaSuccess
 
 #define _cuda_check(fn) \
@@ -24,9 +18,11 @@ do { \
 
 #define _alloc_check(fn) \
 do { \
-    if (!(fn)) { _cuda_err = cudaUnspecified; goto _cuda_fail; } \
+    if (!(fn)) { _cuda_err = cudaErrorApiFailureBase; goto _cuda_fail; } \
     else _cuda_err = cudaSuccess; \
 } while(false)
+
+namespace exllama {
 
 // Clone CPU <-> CUDA
 
@@ -66,6 +62,8 @@ __host__ inline __half2 pack_half2(__half h1, __half h2)
     unsigned short s2 = *reinterpret_cast<unsigned short*>(&h2);
     ushort2 us2 = make_ushort2(s1, s2);
     return *reinterpret_cast<__half2*>(&us2);
+}
+
 }
 
 #endif

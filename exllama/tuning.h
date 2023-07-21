@@ -1,6 +1,8 @@
 #ifndef _tuning_h
 #define _tuning_h
 
+namespace exllama {
+
 struct ExLlamaTuning
 {
     int matmul_recons_thd;
@@ -14,5 +16,7 @@ struct ExLlamaTuning
     bool silu_no_half2;
     bool concurrent_streams;
 };
+
+}
 
 #endif

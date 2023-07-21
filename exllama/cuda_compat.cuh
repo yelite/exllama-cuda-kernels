@@ -1,6 +1,8 @@
 #ifndef _cuda_compat_cuh
 #define _cuda_compat_cuh
 
+namespace exllama {
+
 // atomicAdd for half types, to support CC < 7.x
 
 __device__ __forceinline__ void atomicAdd_half(half* address, half val)
@@ -52,5 +54,7 @@ __device__ __forceinline__ void atomicAdd(half2* address, half2 val) { atomicAdd
 
 #endif
 #endif
+
+}
 
 #endif

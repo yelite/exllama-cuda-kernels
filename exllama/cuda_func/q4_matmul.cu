@@ -4,9 +4,8 @@
 #include "../matrix.cuh"
 #include "../cuda_compat.cuh"
 #include "../cuda_buffers.cuh"
-#if defined(USE_ROCM)
-#include "../hip_compat.cuh"
-#endif
+
+namespace exllama {
 
 const int THREADS_X = 32;       // Block size and thread count along columns in w and out
 const int THREADS_Y = 1;        // Block size and thread count along rows in x and out
@@ -216,3 +215,4 @@ void q4_matmul_cuda
     kernel<<<blocks, threads, 0, alt_stream>>> (x_mapped, w->cuda_qweight, out, w->cuda_scales, w->cuda_qzeros, height, dim, width, w->groupsize, block_size_z, x_map, no_zero);
 }
 
+}

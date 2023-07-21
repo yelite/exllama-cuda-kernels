@@ -7,6 +7,8 @@
 
 #include "../tuning.h"
 
+namespace exllama {
+
 void rope_cuda
 (
     ExLlamaTuning* tuningParams,
@@ -20,5 +22,7 @@ void rope_cuda
     const int past_len,
     cudaStream_t alt_stream = NULL
 );
+
+}
 
 #endif

@@ -3,6 +3,8 @@
 #include "../util.cuh"
 #include "../matrix.cuh"
 
+namespace exllama {
+
 const int THREADS_X = 32;
 const int THREADS_Y = 8;
 const int BLOCKSIZE_X = 16;
@@ -210,4 +212,6 @@ void rms_norm_cuda
     kernel2<<<blocks, threads>>>(x, w, out, temp, epsilon, r_dim, rows, dim);
 
     //cudaMemsetAsync(temp, 0, rows * sizeof(float));
+}
+
 }

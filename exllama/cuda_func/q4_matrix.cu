@@ -3,6 +3,8 @@
 #include "../util.cuh"
 #include "../matrix.cuh"
 
+namespace exllama {
+
 using namespace std;
 
 const int UNSHUF_BLOCKSIZE_X = 64;
@@ -221,4 +223,6 @@ void Q4Matrix::reconstruct(half* out)
     );
 
     reconstruct_kernel<<<blocks, threads>>>(cuda_qweight, out, cuda_scales, cuda_qzeros, height / 8, width, groupsize);
+}
+
 }

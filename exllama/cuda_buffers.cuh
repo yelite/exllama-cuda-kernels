@@ -6,6 +6,8 @@
 #include <cstdint>
 #include <cstdio>
 
+namespace exllama {
+
 const int CUDA_MAX_DEVICES = 16;
 
 // #ifndef _cuda_buffers_cu
@@ -62,5 +64,7 @@ void prepare_buffers_cuda
 );
 
 void cleanup_buffers_cuda();
+
+}
 
 #endif

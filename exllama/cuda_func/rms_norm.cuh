@@ -7,6 +7,8 @@
 
 #include "../tuning.h"
 
+namespace exllama {
+
 void rms_norm_cuda
 (
     ExLlamaTuning* tuningParams,
@@ -18,5 +20,7 @@ void rms_norm_cuda
     const int dim,
     const int device_index
 );
+
+}
 
 #endif

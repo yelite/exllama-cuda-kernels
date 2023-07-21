@@ -9,11 +9,8 @@
 #include "q4_matrix.cuh"
 #include "../tuning.h"
 
-// Workaround for hipify_python using rocblas instead of hipblas.
-#if defined(USE_ROCM)
-#include <hipblas/hipblas.h>
-#define rocblas_handle hipblasHandle_t
-#endif
+
+namespace exllama {
 
 void q4_matmul_cuda
 (
@@ -25,5 +22,7 @@ void q4_matmul_cuda
     bool no_zero = false,
     cudaStream_t alt_stream = NULL
 );
+
+}
 
 #endif

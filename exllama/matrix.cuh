@@ -4,7 +4,7 @@
 #include <cuda_runtime.h>
 #include <cuda_fp16.h>
 
-//#include "cuda_buffers.cuh"
+namespace exllama {
 
 class MatrixView_half
 {
@@ -291,4 +291,5 @@ __device__ __forceinline__ half dot_product_8_x_map_h
     return result;
 }
 
+}
 #endif

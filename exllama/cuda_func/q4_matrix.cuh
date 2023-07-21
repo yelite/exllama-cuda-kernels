@@ -5,6 +5,8 @@
 #include <cuda_fp16.h>
 #include <cstdint>
 
+namespace exllama {
+
 class Q4Matrix
 {
 public:
@@ -47,5 +49,7 @@ private:
 
 void g_q4_keep_matrix(Q4Matrix* m);
 void g_q4_free_matrices();
+
+}
 
 #endif
